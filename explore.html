@@ -18,6 +18,7 @@
             <p id='imageholder'> </p>
             <input id="searchbar" placeholder="Search">
             <button onclick="SETUP()">🔎</button>
+            <img id='actualimage'> </img>
             
             </p>
         </body>
@@ -34,7 +35,7 @@
       // SETUP("pasta");
       async function SETUP() {
         let FOOD = document.getElementById("searchbar").value
-        alert(FOOD)
+//         alert(FOOD)
         await fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${FOOD}&diet=${diet}&number=${number}&apiKey=${key}`)
           .then((response) => { return response.json(); })
           .then((jsonData) => { api = jsonData; });
@@ -44,11 +45,27 @@
 
         // prints link to image to card
         let id = api.results[0].id;
-        alert(id)
+//         alert(id)
         let title = api.results[0].title;
-        alert(title)
+//         alert(title)
         console.log(`https://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`)
         document.getElementById("imageholder").innerHTML = `Recipe to ${title}: \nhttps://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`;
+        GETIMAGE(id)
+      }
+        
+      async function GETIMAGE(id) {
+        await fetch(`https://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`)
+            .then((response) => { return response.json(); })
+            .then((jsonData) => { api = jsonData; });
+
+        // document.getElementById('def').innerHTML = api.results[0].title;
+        // document.getElementById('img').src = api.results[0].image;
+        console.log(api);
+
+        // prints link to image to card
+        let url = api.url;
+        document.getElementById('actualimage').innerHTML = `${url}`
+//         console.log(`${url}`)
       }
     </script>
 
