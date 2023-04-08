@@ -33,7 +33,7 @@
 
       // SETUP("pasta");
       async function SETUP() {
-        let FOOD = document.getElementById("searchbar").innerHTML
+        let FOOD = document.getElementById("searchbar").value
         alert(FOOD)
         await fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${FOOD}&diet=${diet}&number=${number}&apiKey=${key}`)
           .then((response) => { return response.json(); })
