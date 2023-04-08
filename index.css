@@ -2,6 +2,9 @@
     border:unset;
     margin:unset;
 }
+h1{
+    color:black;
+}
 nav{
     background: rgb(60, 34, 24);
     height:7rem;
@@ -117,4 +120,18 @@ input[type="password"] {
 #mainText{
     text-align: center;
     font-size: 7rem;
+}
+.RightText{
+    float:right;
+    margin-right:2rem;
+}
+.LeftText{
+    float: left;
+    margin-left:2rem;
+}
+.ParagraphTopper{
+    font-size: 3rem;
+}
+.ParagraphBody{
+    font-size: 2rem;
 }
