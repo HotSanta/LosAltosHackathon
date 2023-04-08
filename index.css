@@ -117,14 +117,4 @@ input[type="password"] {
     color:green;
     text-decoration: none;
 }
-#mainText{
-    text-align: center;
-}
-.RightText{
-    float:right;
-    margin-right:2rem;
-}
-.LeftText{
-    float: left;
-    margin-left:2rem;
-}
+
