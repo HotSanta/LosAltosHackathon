@@ -42,9 +42,10 @@
 
 
         // prints link to image to card
-        let id = api.results[0].title;
+        let id = api.results[0].id;
+        let title = api.results[0].title;
         console.log(`https://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`)
-        document.getElementById("imageholder").innerHTML = `https://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`;
+        document.getElementById("imageholder").innerHTML = `Recipe to ${title}: \nhttps://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`;
       }
     </script>
 
