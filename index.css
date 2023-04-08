@@ -11,17 +11,18 @@ nav{
 #logo{
     border:1rem solid black;
     border-radius:.5rem;
+    margin-left:2rem;
+    margin-top:1rem;
 }
 
 .indexButtons{
-    height:4rem;
     border: 1rem solid darkgreen;
     border-radius: 0.5rem;
     background-color: darkgreen;
     color:white;
     text-align: center;
     text-decoration: none;
-    margin-top: 2rem;
+    margin-top: 1.75rem;
 }
 body{
     background-color:lightgreen;
