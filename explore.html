@@ -38,11 +38,11 @@
           .then((response) => { return response.json(); })
           .then((jsonData) => { api = jsonData; });
         // document.getElementById('def').innerHTML = api.results[0].title;
-        document.getElementById('imageholder').src = api.results[0].image;
+         // document.getElementById('imageholder').src = api.results[0].image;
 
 
         // prints link to image to card
-        let id = api.results[0].title;
+        let id = api.results[0].id;
         console.log(`https://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`)
         document.getElementById("imageholder").innerHTML = `https://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`;
       }
