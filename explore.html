@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Aarav's website</title>
+        <title>Aarav is MID</title>
         <link rel = "stylesheet" href = "format.css">
     </head>
     
@@ -33,10 +33,10 @@
       let favorites = [];
 
       // SETUP("pasta");
-      async function SETUP() {
+      function SETUP() {
         let FOOD = document.getElementById("searchbar").value
 //         alert(FOOD)
-        await fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${FOOD}&diet=${diet}&number=${number}&apiKey=${key}`)
+        fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${FOOD}&diet=${diet}&number=${number}&apiKey=${key}`)
           .then((response) => { return response.json(); })
           .then((jsonData) => { api = jsonData; });
         // document.getElementById('def').innerHTML = api.results[0].title;
