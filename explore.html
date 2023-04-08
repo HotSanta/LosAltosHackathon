@@ -17,7 +17,7 @@
                 <input placeholder="Enter Username" id="makeUser">
             <p id='imageholder'> </p>
             <input id="searchbar" placeholder="Search">
-            <button onclick="SETUP(makeUser)">🔎</button>
+            <button onclick="SETUP()">🔎</button>
             
             </p>
         </body>
@@ -32,17 +32,18 @@
       let favorites = [];
 
       // SETUP("pasta");
-      async function SETUP(document.getElementById("searchbar").innerHTML) {
+      async function SETUP() {
+          let FOOD = document.getElementById("searchbar").innerHTML
         await fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${FOOD}&diet=${diet}&number=${number}&apiKey=${key}`)
           .then((response) => { return response.json(); })
           .then((jsonData) => { api = jsonData; });
         // document.getElementById('def').innerHTML = api.results[0].title;
-        // document.getElementById('img').src = api.results[0].image;
+        document.getElementById('imageholder').src = api.results[0].image;
 
 
         // prints link to image to card
         let id = api.results[0].title;
-        // console.log(`https://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`)
+        console.log(`https://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`)
         document.getElementById("imageholder").innerHTML = `https://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`;
       }
     </script>
