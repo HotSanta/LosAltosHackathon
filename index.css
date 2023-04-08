@@ -3,7 +3,7 @@
     margin:unset;
 }
 nav{
-    background: green;
+    background: (60, 34, 24);
     height:7rem;
     color:white;
     margin-bottom: 3rem;
@@ -30,7 +30,7 @@ nav{
     margin-right:2rem;
 }
 body{
-    background-color:131, 166, 88;
+    background-color:(131, 166, 88);
 }
 form {
     border: 1rem solid green;
@@ -110,6 +110,4 @@ input[type="password"] {
 .loginLink:hover{
     color:green;
 }
-#foot{
-    background-color: 60, 34, 24;
-}
+
