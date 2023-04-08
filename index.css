@@ -7,9 +7,12 @@ nav{
     height:5rem;
     line-height:5rem;
     color:white;
-    font-size:5rem;
     padding-left:2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
+}
+nav button{
+    height:4rem;
+    
 }
 form {
     border: 1rem solid green;
