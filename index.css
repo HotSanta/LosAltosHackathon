@@ -3,7 +3,7 @@
     margin:unset;
 }
 nav{
-    background: (60, 34, 24);
+    background: rgb(60, 34, 24);
     height:7rem;
     color:white;
     margin-bottom: 3rem;
@@ -30,7 +30,7 @@ nav{
     margin-right:2rem;
 }
 body{
-    background-color:(131, 166, 88);
+    background-color:rgb(131, 166, 88);
 }
 form {
     border: 1rem solid green;
