@@ -12,7 +12,9 @@ nav{
 }
 nav button{
     height:4rem;
-    
+}
+body{
+    background:black;
 }
 form {
     border: 1rem solid green;
