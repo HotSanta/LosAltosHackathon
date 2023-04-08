@@ -5,9 +5,7 @@
 nav{
     background: green;
     height:5rem;
-    line-height:5rem;
     color:white;
-    padding-left:2rem;
     margin-bottom: 3rem;
 }
 nav button{
