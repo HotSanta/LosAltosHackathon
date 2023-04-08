@@ -32,9 +32,9 @@
       let favorites = [];
 
       // SETUP("pasta");
-      function SETUP() {
+      async function SETUP() {
         let FOOD = document.getElementById("searchbar").innerHTML
-        fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${FOOD}&diet=${diet}&number=${number}&apiKey=${key}`)
+        await fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${FOOD}&diet=${diet}&number=${number}&apiKey=${key}`)
           .then((response) => { return response.json(); })
           .then((jsonData) => { api = jsonData; });
         // document.getElementById('def').innerHTML = api.results[0].title;
