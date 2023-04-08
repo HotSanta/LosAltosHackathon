@@ -55,6 +55,8 @@ form button{
 }
 form button[type="submit"]{
     padding: 15px 32px;
+    border:0rem solid lightgreen;
+    border-radius: 0.5rem;
 }
 .alternativeLogins{
     display: flex;
