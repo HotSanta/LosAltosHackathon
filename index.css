@@ -8,7 +8,7 @@ nav{
     color:white;
     margin-bottom: 3rem;
 }
-nav button{
+.indexButtons{
     height:4rem;
     border: 1rem solid darkgreen;
     border-radius: 0.5rem;
