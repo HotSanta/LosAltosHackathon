@@ -1,15 +1,15 @@
 {
-  "name": "Hackathon Project",
-  "short_name": "Altos",
-  "description": "hackathon project",
-  "scope": "/altos2023/",
-  "start_url": "/altos2023/",
+  "name": "F-inder",
+  "short_name": "F-inder",
+  "description": "Food Finder",
+  "scope": "/LosAltosHackathon/",
+  "start_url": "/LosAltosHackathon/",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
   "display": "standalone", 
   "icons": [
       {
-        "src": "/altos2023/assets/logo.png",
+        "src": "/LosAltosHackathon/assets/logo.png",
         "type": "image/png",
         "sizes": "700x700"
       }
