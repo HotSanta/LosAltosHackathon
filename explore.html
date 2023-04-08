@@ -18,7 +18,7 @@
             <p id='imageholder'> </p>
             <input id="searchbar" placeholder="Search">
             <button onclick="SETUP()">🔎</button>
-            <img id='actualimage'> </img>
+            <img id='actualimage' > </img>
             
             </p>
         </body>
@@ -64,7 +64,7 @@
 
         // prints link to image to card
         let url = api.url;
-        document.getElementById('actualimage').innerHTML = `${url}`
+        document.getElementById('actualimage').setAttribute('href',`${url}')
 //         console.log(`${url}`)
       }
     </script>
