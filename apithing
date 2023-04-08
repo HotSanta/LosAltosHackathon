@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>Aarav's website</title>
+        <link rel = "stylesheet" href = "format.css">
+    </head>
+    
+    <body>
+        <h1 style="font-size:60px;text-align:center;color:blue" >Welcome to my website</h1>
+    </body>
+    
+    <div class = "parallaxblackbody">
+        <body>
+            <p style="font-size:24px;text-align:center;color:black">
+                <br><br>I made this website very fast so it is very good
+                <br><br><br>I should maybe add more ehre
+                <h4 id="messageInput">Create an account here</h4>
+                <input placeholder="Enter Username" id="makeUser">
+            </p>
+        </body>
+    </div>
+    
+    <footer>
+        <div class = "parallaxblackfooter">
+            <p style = "color:white;font-size:16px;text-align:center;">Contact me</p>
+            <p style = "color:white;text-align:center;"><a href="mailto:aarav.meh@lvjusd.org">My email</a></p>
+        </div>
+    </footer>
+    
+</html>
