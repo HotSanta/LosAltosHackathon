@@ -24,7 +24,7 @@ nav{
     margin-top: 2rem;
 }
 body{
-    background-color:black;
+    background-color:lightgreen;
 }
 form {
     border: 1rem solid green;
@@ -103,4 +103,7 @@ input[type="password"] {
 }
 .loginLink:hover{
     color:green;
+}
+#foot{
+    background-color: 60, 34, 24;
 }
