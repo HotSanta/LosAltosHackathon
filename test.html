@@ -110,7 +110,6 @@
         <button class="collapsible">Diet</button>
         <div class="content">
             <input type="checkbox" id="glutenFree" name="glutenFree" value="true">
-            <label for="glutenFree" style = "font-size:16px">Gluten Free</label><br>
             <p><input type="checkbox" id="ketogenic" name="ketogenic" value="true">
             <label for="ketogenic" style = "font-size:16px">Ketogenic</label><br>            
             <input type="checkbox" id="pescetarian" name="pescetarian" value="true">
@@ -127,14 +126,14 @@
             <label for="dairy" style = "font-size:16px">Dairy</label><br>
             <input type="checkbox" id="egg" name="egg" value="true">
             <label for="egg" style = "font-size:16px">Egg</label><br>
+            <input type="checkbox" id="gluten" name="gluten" value="true">
+            <label for="gluten" style = "font-size:16px">Gluten</label><br>
             <input type="checkbox" id="peanut" name="peanut" value="true">
             <label for="peanut" style = "font-size:16px">Peanut</label>
             <input type="checkbox" id="seafood" name="seafood" value="true">
             <label for="seafood" style = "font-size:16px">Seafood</label>
             <input type="checkbox" id="soy" name="soy" value="true">
-            <label for="soy" style = "font-size:16px">Soy</label>
-            <input type="checkbox" id="wheat" name="wheat" value="true">
-            <label for="wheat" style = "font-size:16px">Wheat</label><br></p>
+            <label for="soy" style = "font-size:16px">Soy</label></p>
         </div>
 <!--         <input type="submit" value="Submit"> -->
         <p id='text1'> </p>
@@ -176,7 +175,6 @@
         }
         
         diets = {
-            "glutenFree": document.getElementById("glutenFree").checked,
             "ketogenic": document.getElementById("ketogenic").checked,
             "pescetarian": document.getElementById("pescetarian").checked,
             "vegan": document.getElementById("vegan").checked,
@@ -189,7 +187,7 @@
             "peanut": document.getElementById("peanut").checked,
             "seafood": document.getElementById("seafood").checked,
             "soy": document.getElementById("soy").checked,
-            "wheat": document.getElementById("wheat").checked,
+            "gluten": document.getElementById("gluten").checked,
         }
         
         let cuisineStr = ''
