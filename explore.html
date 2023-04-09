@@ -405,7 +405,8 @@
       });
     });
     console.log(`https://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`);
-    document.getElementById("text" + (i + 1)).innerHTML = `${title}: \$${Math.round(api3.totalCostPerServing).toFixed(2)} per serving`;
+    var costPerServe = api3.totalCostPerServing / 100
+    document.getElementById("text" + (i + 1)).innerHTML = `${title}: \$${costPerServe.toFixed(2)} per serving`;
     document.getElementById("modButton" + (i + 1)).classList.remove("disabled");
       document.getElementById("favButton" + (i + 1)).classList.remove("disabled");
     console.log(api2.url);
