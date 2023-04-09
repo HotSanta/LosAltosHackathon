@@ -13,6 +13,9 @@
     background-color: rgb(3, 84, 56);
     color:white;
 }
+#tophome{
+    height:40vh;
+}
 #searchClick{
     border:0rem solid white;
     border-radius:0rem 1rem 1rem 0rem;
