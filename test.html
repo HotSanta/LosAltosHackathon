@@ -65,19 +65,18 @@
       let number = '1'; // change this later
       let img;
       let favorites = [];
+      let vegetarian;
+      document.addEventListener("DOMContentLoaded", () => {
+        if (document.getElementById("vegetarian").checked) 
+           vegetarian = True
+        }
+        else if (document.getElementById("vegetarian").unchecked) 
+           vegetarian = False
+        }
+      })
 
       // SETUP("pasta");
       function SETUP() {
-        let vegetarian;
-        document.addEventListener("DOMContentLoaded", () => {
-          if (document.getElementById("vegetarian").checked) {
-            
-            vegetarian = True
-          }
-          else if (document.getElementById("vegetarian").unchecked) {
-              vegetarian = False
-          }
-        })
         alert(vegetarian)
         let FOOD = document.getElementById("searchbar").value
 //         alert(FOOD)
