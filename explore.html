@@ -291,7 +291,7 @@
       let api2;
       let diet = ''
       let key = 'e42aca40f21048e7b5f69388b03da06b';
-      let number = '1'; // change this later
+      let number = '5'; // change this later
       let img;
       let cuisines;
       let diets;
@@ -385,6 +385,11 @@
     response = await fetch(`https://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`);
     jsonData = await response.json();
     let api2 = jsonData;
+      
+    response = await fetch(`https://api.spoonacular.com/recipes/${id}/priceBreakdownWidget.json?apiKey=${key}`);
+    jsonData = await response.json();
+    let api3 = jsonData;
+      
     let favButton = document.getElementById("favButton" + (i + 1));
     favButton.addEventListener("click", function() {
       // Get the recipe name and recipe card image URL
@@ -399,7 +404,7 @@
       });
     });
     console.log(`https://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`);
-    document.getElementById("text" + (i + 1)).innerHTML = `${title}`;
+    document.getElementById("text" + (i + 1)).innerHTML = `${title}: \$${api3.totalCostPerServing} per serving`;
     document.getElementById("modButton" + (i + 1)).classList.remove("disabled");
       document.getElementById("favButton" + (i + 1)).classList.remove("disabled");
     console.log(api2.url);
