@@ -5,7 +5,7 @@
     </head>
     
     <body>
-        <h1 style="font-size:60px;text-align:center;color:blue" >load?????</h1>
+        <h1 style="font-size:60px;text-align:center;color:blue" >load?????????????</h1>
     </body>
     
     <div class = "parallaxblackbody">
@@ -54,7 +54,7 @@
             let imageUrl = api.results[i].image;
     //         alert(title)
             
-            await fetch(`https://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`)
+            fetch(`https://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`)
                 .then((response) => { return response.json(); })
                 .then((jsonData) => { api2 = jsonData; });
             
