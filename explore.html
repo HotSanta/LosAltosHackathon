@@ -140,7 +140,7 @@
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary">Save changes</button>
               </div>
-            </div>
+            </div>https://github.com/HotSanta/LosAltosHackathon/blob/main/explore.html
           </div>
         </div>
         <div id='actualimage4'> </div>
@@ -222,6 +222,7 @@
             console.log(`https://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`)
             document.getElementById("text" + (i + 1)).innerHTML = `${title}`
             document.getElementById('modButton'+(i+1)).classList.remove('disabled');
+            console.log(api2.url)
             document.getElementById('modalImage'+(i+1)).innerHTML =`<img src=\"${api2.url}" width=\"270px\" height=\"200px\">`
 //             document.getElementById("text" + (i + 1)).innerHTML = `Recipe to ${title}: \nhttps://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`;
             document.getElementById('actualimage' + (i + 1)).innerHTML = `<img src=\"${imageUrl}" width=\"270px\" height=\"200px\">`
