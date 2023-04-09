@@ -152,7 +152,7 @@
       let api;
       let api2;
       let diet = ''
-      let Key = '139c044f4ea94deba7c26aba2e51bea5';
+      let key = '139c044f4ea94deba7c26aba2e51bea5';
       let number = '1'; // change this later
       let img;
       let cuisines;
@@ -196,25 +196,25 @@
         let dietStr = ''
         let intoleranceStr = ''
         
-        for (var key in cuisines){
-            if (cuisines[key]){
-                cuisineStr = cuisineStr + key + ','
+        for (var i in cuisines){
+            if (cuisines[i]){
+                cuisineStr = cuisineStr + i + ','
             }
         }
         if (cuisineStr.length != 0){
             cuisineStr = cuisineStr.substring(0, cuisineStr.length - 1);
         }
-        for (var key in diets){
-            if (diets[key]){
-                dietStr = dietStr + key + ','
+        for (var i in diets){
+            if (diets[i]){
+                dietStr = dietStr + i + ','
             }
         }
         if (dietStr.length != 0){
             dietStr = dietStr.substring(0, dietStr.length - 1);
         }
-        for (var key in intolerances){
-            if (intolerances[key]){
-                intoleranceStr = intoleranceStr + key + ','
+        for (var i in intolerances){
+            if (intolerances[i]){
+                intoleranceStr = intoleranceStr + i + ','
             }
         }
         if (intoleranceStr.length != 0){
@@ -224,7 +224,7 @@
         
         let FOOD = document.getElementById("searchbar").value
 //         alert(FOOD)
-        fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${FOOD}&cuisine=${cuisineStr}&diet=${dietStr}&number=${number}&apiKey=${Key}`)
+        fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${FOOD}&cuisine=${cuisineStr}&diet=${dietStr}&number=${number}&apiKey=${key}`)
           .then((response) => { return response.json(); })
           .then((jsonData) => { api = jsonData; });
         // document.getElementById('def').innerHTML = api.results[0].title;
