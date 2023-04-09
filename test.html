@@ -194,7 +194,7 @@
         
         let cuisineStr = ''
         let dietStr = ''
-        let inteleranceStr = ''
+        let intoleranceStr = ''
         
         for (var key in cuisines){
             if (cuisines[key]){
@@ -204,8 +204,26 @@
         if (cuisineStr.length != 0){
             cuisineStr = cuisineStr.substring(0, cuisineStr.length - 1);
         }
+        for (var key in diets){
+            if (diets[key]){
+                dietStr = dietStr + key + ','
+            }
+        }
+        if (dietStr.length != 0){
+            dietStr = dietStr.substring(0, dietStr.length - 1);
+        }
+        for (var key in intolerances){
+            if (intolerances[key]){
+                intoleranceStr = intoleranceStr + key + ','
+            }
+        }
+        if (intoleranceStr.length != 0){
+            intoleranceStr = intoleranceStr.substring(0, intoleranceStr.length - 1);
+        }
         
         alert(cuisineStr)
+        alert(dietStr)
+        alert(intoleranceStr)
         
         let FOOD = document.getElementById("searchbar").value
 //         alert(FOOD)
