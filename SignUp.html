@@ -116,8 +116,9 @@
             firebase.auth().signInWithPopup(provider).then(function(result) {
                 sessionStorage.setItem("loggedIn","yes")
                 window.location.href = "home.html"; 
-                var profile = auth2.currentUser.get().getBasicProfile();
-                alert(profile.getEmail())
+                var profile = result.user.providerData[0];
+                var email = profile.email;
+                sessionStorage.setItem("email",email)
               
             }).catch(function(error) {
                 var errorCode = error.code;
