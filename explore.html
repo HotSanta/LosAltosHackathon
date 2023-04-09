@@ -1,31 +1,35 @@
 <html>
     <head>
-        <title>Aarav is MID</title>
-        <link rel = "stylesheet" href = "format.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Food Findr</title>
+        <link rel="canonical" href="https://HotSanta.github.io/LosAltosHackathon/" />
+        <link rel="manifest" href="/LosAltosHackathon/manifest.webmanifest">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="index.css">
     </head>
     
     <body>
         <h1 style="font-size:60px;text-align:center;color:blue" >load</h1>
+        <p style="font-size:24px;text-align:center;color:black">
+        <input id="searchbar" placeholder="Search" style="font-size:48px;color:gray;font:helvetica">
+        <button onclick="SETUP()" style="font-size:48px;font:helvetica">🔎</button>
+        <p id='text1'> </p>
+        <div id='actualimage1'> </div>
+        <p id='text2'> </p>
+        <div id='actualimage2'> </div>
+        <p id='text3'> </p>
+        <div id='actualimage3'> </div>
+        <p id='text4'> </p>
+        <div id='actualimage4'> </div>
+        <p id='text5'> </p>
+        <div id='actualimage5'> </div>
+        </p>
     </body>
-    
-    <div class = "parallaxblackbody">
-        <body>
-            <p style="font-size:24px;text-align:center;color:black">
-            <input id="searchbar" placeholder="Search" style="font-size:48px;color:gray;font:helvetica">
-            <button onclick="SETUP()" style="font-size:48px;font:helvetica">🔎</button>
-            <p id='text1'> </p>
-            <div id='actualimage1'> </div>
-            <p id='text2'> </p>
-            <div id='actualimage2'> </div>
-            <p id='text3'> </p>
-            <div id='actualimage3'> </div>
-            <p id='text4'> </p>
-            <div id='actualimage4'> </div>
-            <p id='text5'> </p>
-            <div id='actualimage5'> </div>
-            </p>
-        </body>
-    </div>
     
     <script>
       let api;
@@ -79,12 +83,8 @@
         return api.url;
       }
     </script>
-
-    <footer>
-        <div class = "parallaxblackfooter">
-            <p style = "color:white;font-size:16px;text-align:center;">Contact me</p>
-            <p style = "color:white;text-align:center;"><a href="mailto:aarav.meh@lvjusd.org">My email</a></p>
-        </div>
-    </footer>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     
 </html>
