@@ -156,15 +156,58 @@
       let key = '4cab608a4e1d4d55a0922e181be7bea6';
       let number = '1'; // change this later
       let img;
-      let favorites = [];
-      let vegetarian;
+      let cuisines;
+      let diets;
+      let intolerances;
       
-        
-        
       // SETUP("pasta");
       function SETUP() {
-        vegetarian = document.getElementById("vegetarian").checked
-        alert(vegetarian)
+        cuisines = {
+            american = document.getElementById("american").checked,
+            chinese = document.getElementById("chinese").checked,
+            french = document.getElementById("french").checked,
+            greek = document.getElementById("greek").checked,
+            indian = document.getElementById("indian").checked,
+            italian = document.getElementById("italian").checked,
+            japanese = document.getElementById("japanese").checked,
+            korean = document.getElementById("korean").checked,    
+            mexican = document.getElementById("mexican").checked,
+            middleEastern = document.getElementById("middleEastern").checked,
+            thai = document.getElementById("thai").checked,
+        }
+        
+        diets = {
+            glutenFree = document.getElementById("glutenFree").checked,
+            ketogenic = document.getElementById("ketogenic").checked,
+            pescetarian = document.getElementById("pescetarian").checked,
+            vegan = document.getElementById("vegan").checked,
+            vegetarian = document.getElementById("vegetarian").checked,
+        }
+        
+        intolerances = {
+            dairy = document.getElementById("dairy").checked,
+            egg = document.getElementById("egg").checked,
+            peanut = document.getElementById("peanut").checked,
+            seafood = document.getElementById("seafood").checked,
+            soy = document.getElementById("soy").checked,
+            wheat = document.getElementById("wheat").checked,
+        }
+        
+        let cuisineStr = ''
+        let dietStr = ''
+        let inteleranceStr = ''
+        
+        for (var key in cuisines){
+            if (cuisine[key]){
+                cuisineStr = cuisineStr + key + ','
+            }
+        }
+        if (cuisineStr.length != 0){
+            cuisineStr.substring(0, cuisineStr.length - 1);
+        }
+        
+        alert(cuisineStr)
+        
         let FOOD = document.getElementById("searchbar").value
 //         alert(FOOD)
         fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${FOOD}&diet=${diet}&number=${number}&apiKey=${key}`)
