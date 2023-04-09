@@ -2,6 +2,43 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+        .collapsible {
+          background-color: #777;
+          color: white;
+          cursor: pointer;
+          padding: 18px;
+          width: 100%;
+          border: none;
+          text-align: left;
+          outline: none;
+          font-size: 15px;
+        }
+
+        .active, .collapsible:hover {
+          background-color: #555;
+        }
+
+        .collapsible:after {
+          content: '\002B';
+          color: white;
+          font-weight: bold;
+          float: right;
+          margin-left: 5px;
+        }
+
+        .active:after {
+          content: "\2212";
+        }
+
+        .content {
+          padding: 0 18px;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.2s ease-out;
+          background-color: #f1f1f1;
+        }
+        </style>
         <title>Food Findr</title>
         <link rel="canonical" href="https://HotSanta.github.io/LosAltosHackathon/" />
         <link rel="manifest" href="/LosAltosHackathon/manifest.webmanifest">
@@ -48,6 +85,61 @@
         <div class="row">
         <div class="col-3 vh-100 justify-content-start" style="background-color:rgb(232, 217, 194)">
             <h1 class="py-2 px-3 text-dark" style="font-size:3rem">Filters</h1>
+             <button class="collapsible">Cuisine</button>
+        <div class="content">
+            <p><input type="checkbox" id="american" name="american" value="true">
+            <label for="american" style="font-size:16px">American</label><br>
+            <input type="checkbox" id="chinese" name="chinese" value="true">
+            <label for="chinese" style="font-size:16px">Chinese</label><br>
+            <input type="checkbox" id="french" name="french" value="true">
+            <label for="french" style="font-size:16px">French</label><br>
+            <input type="checkbox" id="greek" name="greek" value="true">
+            <label for="greek" style="font-size:16px">Greek</label><br>
+            <input type="checkbox" id="indian" name="indian" value="true">
+            <label for="indian" style="font-size:16px">Indian</label><br>
+            <input type="checkbox" id="italian" name="italian" value="true">
+            <label for="italian" style="font-size:16px">Italian</label><br>
+            <input type="checkbox" id="japanese" name="japanese" value="true">
+            <label for="japanese" style="font-size:16px">Japanese</label><br>
+            <input type="checkbox" id="korean" name="korean" value="true">
+            <label for="korean" style="font-size:16px">Korean</label><br>
+            <input type="checkbox" id="mexican" name="mexican" value="true">
+            <label for="mexican" style="font-size:16px">Mexican</label><br>
+            <input type="checkbox" id="middleEastern" name="middleEastern" value="true">
+            <label for="middleEastern" style="font-size:16px">Middle Eastern</label><br>
+            <input type="checkbox" id="thai" name="thai" value="true">
+            <label for="thai" style="font-size:16px">Thai</label><br></p>
+        </div>
+        
+        <button class="collapsible">Diet</button>
+        <div class="content">
+            <input type="checkbox" id="glutenFree" name="glutenFree" value="true">
+            <p><input type="checkbox" id="ketogenic" name="ketogenic" value="true">
+            <label for="ketogenic" style="font-size:16px">Ketogenic</label><br>            
+            <input type="checkbox" id="pescetarian" name="pescetarian" value="true">
+            <label for="pescetarian" style="font-size:16px">Pescetarian</label><br>
+            <input type="checkbox" id="vegan" name="vegan" value="true">
+            <label for="vegan" style="font-size:16px">Vegan</label>
+            <input type="checkbox" id="vegetarian" name="vegetarian" value="true">
+            <label for="vegetarian" style="font-size:16px">Vegetarian</label><br><br></p>
+        </div>
+        
+        <button class="collapsible">Intolerances</button>
+        <div class="content">
+            <p><input type="checkbox" id="dairy" name="dairy" value="true">
+            <label for="dairy" style="font-size:16px">Dairy</label><br>
+            <input type="checkbox" id="egg" name="egg" value="true">
+            <label for="egg" style="font-size:16px">Egg</label><br>
+            <input type="checkbox" id="gluten" name="gluten" value="true">
+            <label for="gluten" style="font-size:16px">Gluten</label><br>
+            <input type="checkbox" id="peanut" name="peanut" value="true">
+            <label for="peanut" style="font-size:16px">Peanut</label>
+            <input type="checkbox" id="seafood" name="seafood" value="true">
+            <label for="seafood" style="font-size:16px">Seafood</label>
+            <input type="checkbox" id="soy" name="soy" value="true">
+            <label for="soy" style="font-size:16px">Soy</label></p>
+        </div>
+        </div>
         </div>
         <div class="col-9">
         <h1 style="font-size:40px;text-align:center;margin-bottom:2rem;" class="text-dark" >Search</h1>
@@ -157,15 +249,77 @@
       let api;
       let api2;
       let diet = ''
-      let key = '3d78471e166d41aebe146a950fe299fb';
-      let number = '2'; // change this later
+      let key = 'e42aca40f21048e7b5f69388b03da06b';
+      let number = '1'; // change this later
       let img;
-      let favorites = [];
+      let cuisines;
+      let diets;
+      let intolerances;
 
       // SETUP("pasta");
       async function SETUP() {
+          
+          cuisines = {
+            "american": document.getElementById("american").checked,
+            "chinese": document.getElementById("chinese").checked,
+            "french": document.getElementById("french").checked,
+            "greek": document.getElementById("greek").checked,
+            "indian": document.getElementById("indian").checked,
+            "italian": document.getElementById("italian").checked,
+            "japanese": document.getElementById("japanese").checked,
+            "korean": document.getElementById("korean").checked,    
+            "mexican": document.getElementById("mexican").checked,
+            "middleEastern": document.getElementById("middleEastern").checked,
+            "thai": document.getElementById("thai").checked,
+        }
+        
+        diets = {
+            "ketogenic": document.getElementById("ketogenic").checked,
+            "pescetarian": document.getElementById("pescetarian").checked,
+            "vegan": document.getElementById("vegan").checked,
+            "vegetarian": document.getElementById("vegetarian").checked,
+        }
+        
+        intolerances = {
+            "dairy": document.getElementById("dairy").checked,
+            "egg": document.getElementById("egg").checked,
+            "peanut": document.getElementById("peanut").checked,
+            "seafood": document.getElementById("seafood").checked,
+            "soy": document.getElementById("soy").checked,
+            "gluten": document.getElementById("gluten").checked,
+        }
+        
+        let cuisineStr = ''
+        let dietStr = ''
+        let intoleranceStr = ''
+        
+        for (var i in cuisines){
+            if (cuisines[i]){
+                cuisineStr = cuisineStr + i + ','
+            }
+        }
+        if (cuisineStr.length != 0){
+            cuisineStr = cuisineStr.substring(0, cuisineStr.length - 1);
+        }
+        for (var i in diets){
+            if (diets[i]){
+                dietStr = dietStr + i + ','
+            }
+        }
+        if (dietStr.length != 0){
+            dietStr = dietStr.substring(0, dietStr.length - 1);
+        }
+        for (var i in intolerances){
+            if (intolerances[i]){
+                intoleranceStr = intoleranceStr + i + ','
+            }
+        }
+        if (intoleranceStr.length != 0){
+            intoleranceStr = intoleranceStr.substring(0, intoleranceStr.length - 1);
+        }
+          
   let FOOD = document.getElementById("searchbar").value;
-  let response = await fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${FOOD}&diet=${diet}&number=${number}&apiKey=${key}`);
+  let response = await fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${FOOD}&diet=${dietStr}&intolerances=${intoleranceStr}&cuisine=${cuisineStr}&number=${number}&apiKey=${key}`);
   let jsonData = await response.json();
   let api = jsonData;
 
@@ -210,8 +364,26 @@
         return api.url;
       }
     </script>
+    
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+          coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight){
+              content.style.maxHeight = null;
+            } else {
+              content.style.maxHeight = content.scrollHeight + "px";
+            } 
+          });
+        }
+    </script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     
+
 </html>
