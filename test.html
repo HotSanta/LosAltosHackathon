@@ -152,7 +152,7 @@
       let api;
       let api2;
       let diet = ''
-      let key = '139c044f4ea94deba7c26aba2e51bea5';
+      let Key = '139c044f4ea94deba7c26aba2e51bea5';
       let number = '1'; // change this later
       let img;
       let cuisines;
@@ -224,7 +224,7 @@
         
         let FOOD = document.getElementById("searchbar").value
 //         alert(FOOD)
-        fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${FOOD}&cuisine=${cuisineStr}&diet=${dietStr}&number=${number}&apiKey=${key}`)
+        fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${FOOD}&cuisine=${cuisineStr}&diet=${dietStr}&number=${number}&apiKey=${Key}`)
           .then((response) => { return response.json(); })
           .then((jsonData) => { api = jsonData; });
         // document.getElementById('def').innerHTML = api.results[0].title;
