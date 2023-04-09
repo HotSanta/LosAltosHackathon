@@ -102,6 +102,7 @@
           .then((userCredential) => {
             // Signed in
             sessionStorage.setItem("loggedIn","yes")
+            sessionStorage.setItem("email",email)
             window.location.href = "home.html";        
           })
           .catch((error) => {
@@ -114,7 +115,9 @@
             var provider = new firebase.auth.GoogleAuthProvider();
             firebase.auth().signInWithPopup(provider).then(function(result) {
                 sessionStorage.setItem("loggedIn","yes")
-                window.location.href = "home.html";   
+                window.location.href = "home.html"; 
+                alert(profile.getEmail())
+              
             }).catch(function(error) {
                 var errorCode = error.code;
                 var errorMessage = error.message;
