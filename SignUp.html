@@ -128,23 +128,34 @@
             });
         });
         document.getElementById('github-sign-in-button').addEventListener('click', function(event) {
-            var provider = new firebase.auth.GithubAuthProvider();
+             var provider = new firebase.auth.GithubAuthProvider();
             provider.addScope('user:email');
             firebase.auth().signInWithPopup(provider).then(function(result) {
-                sessionStorage.setItem("loggedIn","yes")
-                window.location.href = "home.html";   
                 var user = result.user;
-                user.providerData.forEach(function(profile) {
-                  if (profile.providerId === "github.com") {
-                    var email = profile.email;
-                    sessionStorage.setItem("email",email)
-                    alert(email);
-                  }
-                });
+                var credential = result.credential;
+                var accessToken = credential.accessToken;
+
+                // Check if user granted 'user:email' scope
+                var hasEmailScope = accessToken && credential.scopes && credential.scopes.indexOf('user:email') !== -1;
+                if (hasEmailScope) {
+                    // Get email address from provider data
+                    user.providerData.forEach(function(profile) {
+                        if (profile.providerId === "github.com") {
+                            var email = profile.email;
+                            sessionStorage.setItem("email", email);
+                            sessionStorage.setItem("loggedIn", "yes");
+                            window.location.href = "home.html";
+                        }
+                    });
+                } else {
+                    // User did not grant email scope
+                    console.log('User did not grant "user:email" scope.');
+                    window.alert('Access denied. Please grant access to your email address.');
+                }
             }).catch(function(error) {
                 var errorCode = error.code;
                 var errorMessage = error.message;
-                window.alert("Error: " + errorMessage);   
+                window.alert("Error: " + errorMessage);
             });
         });
 
