@@ -70,10 +70,11 @@
       function SETUP() {
         let vegetarian;
         document.addEventListener("DOMContentLoaded", () => {
-          if (document.getElementById("check").checked) {
+          if (document.getElementById("vegetarian").checked) {
+            
             vegetarian = True
           }
-          else if (document.getElementById("check").unchecked) {
+          else if (document.getElementById("vegetarian").unchecked) {
               vegetarian = False
           }
         })
