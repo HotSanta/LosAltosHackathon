@@ -154,6 +154,7 @@
              <p id='text1'> </p>
         
         <button class="disabled" id="modButton1" onclick="document.getElementById('exampleModal1').style.display='block'" class="w3-button w3-black">Open Recipe Card</button>
+           <button class="disabled" id="favButton1">Favorite Recipe</button>
           </div>
           <div id="exampleModal1" class="w3-modal">
             <div class="w3-modal-content">
@@ -171,7 +172,7 @@
             
         <p id='text2'> </p>
          <button class="disabled" id="modButton2" onclick="document.getElementById('exampleModal2').style.display='block'" class="w3-button w3-black">Open Recipe Card</button>
-
+            <button class="disabled" id="favButton2">Favorite Recipe</button>
           <div id="exampleModal2" class="w3-modal">
             <div class="w3-modal-content">
               <div class="w3-container">
@@ -187,7 +188,7 @@
         <p id='text3'> </p>
 
         <button class="disabled" id="modButton3" onclick="document.getElementById('exampleModal3').style.display='block'" class="w3-button w3-black">Open Recipe Card</button>
-
+            <button class="disabled" id="favButton3">Favorite Recipe</button>
           <div id="exampleModal3" class="w3-modal">
             <div class="w3-modal-content">
               <div class="w3-container">
@@ -203,7 +204,7 @@
         <p id='text4'> </p>
         
         <button class="disabled" id="modButton4" onclick="document.getElementById('exampleModal4').style.display='block'" class="w3-button w3-black">Open Recipe Card</button>
-
+            <button class="disabled" id="favButton4">Favorite Recipe</button>
           <div id="exampleModal4" class="w3-modal">
             <div class="w3-modal-content">
               <div class="w3-container">
@@ -219,7 +220,7 @@
         <p id='text5'> </p>
         
         <button class="disabled" id="modButton5" onclick="document.getElementById('exampleModal5').style.display='block'" class="w3-button w3-black">Open Recipe Card</button>
-
+        <button class="disabled" id="favButton5">Favorite Recipe</button>
           <div id="exampleModal5" class="w3-modal">
             <div class="w3-modal-content">
               <div class="w3-container">
@@ -237,8 +238,25 @@
             
     </div>
     </body>
-    
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-database.js"></script>
     <script>
+        var firebaseConfig = {
+        apiKey: "AIzaSyB4vrsbuA0_8xFlrY_ysnlKPM6bYhvV2l4",
+        authDomain: "los-altos-hackathon-project.firebaseapp.com",
+        projectId: "los-altos-hackathon-project",
+        storageBucket: "los-altos-hackathon-project.appspot.com",
+        messagingSenderId: "14005580470",
+        appId: "1:14005580470:web:3c7029a8021494c3296c17",
+        measurementId: "G-TGJC2F0DR4"
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      
       function check(){
           if(sessionStorage.getItem("loggedIn")==null){
               window.location = "index.html";
@@ -327,6 +345,7 @@
     document.getElementById("text" + (i + 1)).innerHTML = "";
     document.getElementById("actualimage" + (i + 1)).innerHTML = "";
     document.getElementById("modButton" + (i + 1)).classList.add("disabled");
+     document.getElementById("favButton" + (i + 1)).classList.add("disabled");
   }
 
   for (let i = 0; i < number; i++) {
@@ -343,10 +362,23 @@
     response = await fetch(`https://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`);
     jsonData = await response.json();
     let api2 = jsonData;
-
+    let favButton = document.getElementById("favButton" + (i + 1));
+    favButton.addEventListener("click", function() {
+      // Get the recipe name and recipe card image URL
+      let recipeName = title;
+      let recipeImageURL = api2.url;
+        user = sessionStorage.getItem("email").replaceAll(".","").replaceAll("#","").replaceAll("$",'').replaceAll("[","").replaceAll("]","")
+      const userFavoritesRef = firebase.database().ref('userFavorites/'+user);
+      // Push the recipe data to Firebase
+      userFavoritesRef.push({
+        name: recipeName,
+        imageUrl: recipeImageURL
+      });
+    });
     console.log(`https://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`);
     document.getElementById("text" + (i + 1)).innerHTML = `${title}`;
     document.getElementById("modButton" + (i + 1)).classList.remove("disabled");
+      document.getElementById("favButton" + (i + 1)).classList.remove("disabled");
     console.log(api2.url);
     document.getElementById("modalImage" + (i + 1)).innerHTML = `<img src="${api2.url}" width="400px" height="auto">`;
     document.getElementById("actualimage" + (i + 1)).innerHTML = `<img src="${imageUrl}" width="270px" height="200px">`;
