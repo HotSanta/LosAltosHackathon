@@ -66,17 +66,12 @@
       let img;
       let favorites = [];
       let vegetarian;
-      document.addEventListener("DOMContentLoaded", () => {
-        if (document.getElementById("vegetarian").checked){ 
-           vegetarian = True
-        }
-        else if (document.getElementById("vegetarian").unchecked){ 
-           vegetarian = False
-        }
-      })
-
+      
+        
+        
       // SETUP("pasta");
       function SETUP() {
+        vegetarian = document.getElementById("vegetarian").checked
         alert(vegetarian)
         let FOOD = document.getElementById("searchbar").value
 //         alert(FOOD)
