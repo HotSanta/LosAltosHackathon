@@ -61,9 +61,7 @@
         
         <br>
         <div class="alternativeLogins">
-            <a title="Sign in with Google" id="google-sign-in-button"><img src="https://codehs.com/uploads/5c566dfffd7b82d08e0b2a733318be18" class="img-fluid" width="80" height="80"></a>
-            <a id="github-sign-in-button" title="Sign in with GitHub"><img src ="https://codehs.com/uploads/cfb16d7eebdb57cc1fc75a4ae416f177" class="img-fluid" width="80" height = '80' ></a>
-        </div>
+            <a title="Sign in with Google" id="google-sign-in-button"><img src="https://codehs.com/uploads/5c566dfffd7b82d08e0b2a733318be18" class="img-fluid" width="80" height="80"></a>        </div>
       </div>
     </form>
     <a class="loginLink" href = "SignUp.html">Need to Create an Account?</a>
@@ -99,7 +97,8 @@
           .then((userCredential) => {
             // Signed in
             sessionStorage.setItem("loggedIn","yes")
-            window.location.href = "home.html";        
+            window.location.href = "home.html";  
+            sessionStorage.setItem("email",email)
           })
           .catch((error) => {
             var errorCode = error.code;
@@ -111,18 +110,11 @@
             var provider = new firebase.auth.GoogleAuthProvider();
             firebase.auth().signInWithPopup(provider).then(function(result) {
                 sessionStorage.setItem("loggedIn","yes")
-                window.location.href = "home.html";   
-            }).catch(function(error) {
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                window.alert("Error: " + errorMessage);   
-            });
-        });
-        document.getElementById('github-sign-in-button').addEventListener('click', function(event) {
-            var provider = new firebase.auth.GithubAuthProvider();
-            firebase.auth().signInWithPopup(provider).then(function(result) {
-                sessionStorage.setItem("loggedIn","yes")
-                window.location.href = "home.html";   
+                window.location.href = "home.html"; 
+                var profile = result.user.providerData[0];
+                var email = profile.email;
+                sessionStorage.setItem("email",email)
+              
             }).catch(function(error) {
                 var errorCode = error.code;
                 var errorMessage = error.message;
