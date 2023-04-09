@@ -1,1 +1,127 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Food Findr</title>
+        <link rel="canonical" href="https://HotSanta.github.io/LosAltosHackathon/" />
+        <link rel="manifest" href="/LosAltosHackathon/manifest.webmanifest">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="index.css">
+        <link rel="icon" href="Screen Shot 2023-04-08 at 5.59.07 PM.png">
+    </head>
+    
+    <body onload="check()">
+         <nav class="navbar fixed-bottom navbar-expand-sm d-flex" id="customnav">
+                <div class="container-fluid flex-fill justify-content-center">
+ 
+                    <ul class="navbar-nav flex-fill justify-content-around">
+                        <li class="nav-item  justify-content-center">
+                            <a class="nav-link" href="home.html"><i class="bi-house-fill px-2" style="font-size: 4rem; color: gray"></i></a>
+                        </li>
+                        <li class="nav-item  justify-content-center">
+                            <a class="nav-link" href="explore.html"><i class="bi-search px-2" style="font-size: 4rem; color: white"></i></a>
+                        </li>
+                        
+                       
+                        <li class="nav-item  justify-content-center">
+                            <a class="nav-link" href="finder.html"><i class="bi-fire px-2" style="font-size: 4rem; color: gray"></i></a>
+                        </li>
+                        <li class="nav-item  justify-content-center">
+                            <a class="nav-link" href="profile.html"><i class="bi-person-fill px-2" style="font-size: 4rem; color: gray"></i></a>
+                        </li>
+                    </ul>
+                
+               </div>
+            </nav>
+        <h1 style="font-size:60px;text-align:center;color:Black;margin-bottom:2rem;" >Search using Ingredients</h1>
+        <p style="font-size:24px;text-align:center;color:black">
+        <input id="searchbar" placeholder="Search" style="font-size:40px;color:gray;font:helvetica">
+        <button onclick="SETUP()" id="searchClick" style="margin-left:-.35rem;font-size:40px;color:gray;font:helvetica">🔎</button>
+        <p id='text1'> </p>
+        <p id='2text1'> </p>
+        <div id='actualimage1'> </div>
+        <p id='text2'> </p>
+        <p id='2text2'> </p>
+        <div id='actualimage2'> </div>
+        <p id='text3'> </p>
+        <p id='2text3'> </p>
+        <div id='actualimage3'> </div>
+        <p id='text4'> </p>
+        <p id='2text4'> </p>
+        <div id='actualimage4'> </div>
+        <p id='text5'> </p>
+        <p id='2text5'> </p>
+        <div id='actualimage5'> </div>
+        </p>
+    </body>
+    
+    <script>
+      function check(){
+          if(sessionStorage.getItem("loggedIn")==null){
+              window.location = "index.html";
+          }
+      }
+      let api;
+      let api2;
+      let diet = ''
+      let key = '4cab608a4e1d4d55a0922e181be7bea6';
+      let number = '2'; // change this later
+      let img;
+      let favorites = [];
 
+      // SETUP("pasta");
+      function SETUP() {
+        let FOOD = document.getElementById("searchbar").value
+//         alert(FOOD)
+        fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${FOOD}&diet=${diet}&number=${number}&apiKey=${key}`)
+          .then((response) => { return response.json(); })
+          .then((jsonData) => { api = jsonData; });
+        // document.getElementById('def').innerHTML = api.results[0].title;
+         // document.getElementById('imageholder').src = api.results[0].image;
+
+        for (let i = 0; i < 5; i++){
+            document.getElementById("text" + (i + 1)).innerHTML = ``;
+            document.getElementById("actualimage" + (i + 1)).innerHTML = ``;
+        }
+        // prints link to image to card
+        for (let i = 0; i < number; i++){
+            if (api.totalResults == 0) {
+                document.getElementById("text1").innerHTML = `No results! Try something else!`
+                break
+            }
+            let id = api.results[i].id;
+    //         alert(id)
+            let title = api.results[i].title;
+            let imageUrl = api.results[i].image;
+    //         alert(title)
+            
+            fetch(`https://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`)
+                .then((response) => { return response.json(); })
+                .then((jsonData) => { api2 = jsonData; });
+            
+            console.log(`https://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`)
+            document.getElementById("text" + (i + 1)).innerHTML = `${title}`
+            document.getElementById("2text" + (i + 1)).innerHTML = `${api2.url}`
+//             document.getElementById("text" + (i + 1)).innerHTML = `Recipe to ${title}: \nhttps://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`;
+            document.getElementById('actualimage' + (i + 1)).innerHTML = `<img src=\"${imageUrl}" width=\"270px\" height=\"200px\">`
+        }
+//         GETIMAGE(id)
+      }
+        
+      async function GETIMAGE(id) {
+        await fetch(`https://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`)
+            .then((response) => { return response.json(); })
+            .then((jsonData) => { api = jsonData; });
+
+        return api.url;
+      }
+    </script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+</html>
