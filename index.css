@@ -2,13 +2,6 @@
     border:unset;
     margin:unset;
 }
-.disabled{
-    cursor: not-allowed;
-    display: none;
-}
-.modal{
-    display: none;
-}
 #searchbar{
     border:0rem solid white;
     border-radius:1rem  0rem 0rem 1rem;
