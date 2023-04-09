@@ -50,7 +50,10 @@
         // document.getElementById('def').innerHTML = api.results[0].title;
          // document.getElementById('imageholder').src = api.results[0].image;
 
-
+        for (let i = 0; i < 5; i++){
+            document.getElementById("text" + (i + 1)).innerHTML = ``;
+            document.getElementById("actualimage" + (i + 1)).innerHTML = ``;
+        }
         // prints link to image to card
         for (let i = 0; i < number; i++){
             if (api.totalResults == 0) {
