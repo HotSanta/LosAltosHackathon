@@ -46,16 +46,16 @@
                </div>
             </nav>
         <div class="row">
-        <div class="col-3 justify-content-start" style="background-color:rgb(232, 217, 194)">
+        <div class="col-3 justify-content-start h-100" style="background-color:rgb(232, 217, 194)">
             <h1 class="py-2 px-3 text-dark" style="font-size:3rem">Filters</h1>
         </div>
-        <div class="col-9">
+        <div class="col-9 h-100">
         <h1 style="font-size:40px;text-align:center;margin-bottom:2rem;" class="text-dark" >Search</h1>
         
-    
+    <div class="row justify-content-center">
         <input id="searchbar" placeholder="Search" style="font-size:40px;color:gray">
         <button onclick="SETUP()" id="searchClick" style="margin-left:-.6rem;font-size:40px;color:gray;font:helvetica">🔎</button>
-        </p>
+   </div>    
              <p id='text1'> </p>
         
         <button class="disabled" id="modButton1" onclick="document.getElementById('exampleModal1').style.display='block'" class="w3-button w3-black">Open Recipe Card</button>
@@ -148,7 +148,7 @@
       let api;
       let api2;
       let diet = ''
-      let key = 'a2b4acd8803a46bdb99c78f0154993e8';
+      let key = '3d78471e166d41aebe146a950fe299fb';
       let number = '2'; // change this later
       let img;
       let favorites = [];
