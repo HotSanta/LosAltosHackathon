@@ -129,6 +129,7 @@
         });
         document.getElementById('github-sign-in-button').addEventListener('click', function(event) {
             var provider = new firebase.auth.GithubAuthProvider();
+            provider.addScope('user:email');
             firebase.auth().signInWithPopup(provider).then(function(result) {
                 sessionStorage.setItem("loggedIn","yes")
                 window.location.href = "home.html";   
