@@ -41,22 +41,14 @@
         <p style="font-size:24px;text-align:center;color:black">
         <input id="searchbar" placeholder="Search" style="font-size:40px;color:gray;font:helvetica">
         <button onclick="SETUP()" id="searchClick" style="margin-left:-.35rem;font-size:40px;color:gray;font:helvetica">🔎</button>
+        <form action="/action_page.php">
+        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+        <label for="vehicle1"> Vegetarian</label><br>
+        <input type="submit" value="Submit">
+        </form><p></p>
         <p id='text1'> </p>
         <p id='2text1'> </p>
         <div id='actualimage1'> </div>
-        <p id='text2'> </p>
-        <p id='2text2'> </p>
-        <div id='actualimage2'> </div>
-        <p id='text3'> </p>
-        <p id='2text3'> </p>
-        <div id='actualimage3'> </div>
-        <p id='text4'> </p>
-        <p id='2text4'> </p>
-        <div id='actualimage4'> </div>
-        <p id='text5'> </p>
-        <p id='2text5'> </p>
-        <div id='actualimage5'> </div>
-        </p>
     </body>
     
     <script>
@@ -69,7 +61,7 @@
       let api2;
       let diet = ''
       let key = '4cab608a4e1d4d55a0922e181be7bea6';
-      let number = '2'; // change this later
+      let number = '1'; // change this later
       let img;
       let favorites = [];
 
