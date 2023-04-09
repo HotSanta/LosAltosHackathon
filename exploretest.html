@@ -314,7 +314,7 @@
         
         let FOOD = document.getElementById("searchbar").value
 //         alert(FOOD)
-        let response = await fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${FOOD}&cuisine=${cuisineStr}&intolerances=${intoleranceStr}&diet=${diet}&number=${number}&apiKey=${key}`);
+        let response = await fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${FOOD}&cuisine=${cuisineStr}&intolerances=${intoleranceStr}&diet=${dietStr}&number=${number}&apiKey=${key}`);
       let jsonData = await response.json();
       let api = jsonData;
 
@@ -345,16 +345,6 @@
         console.log(api2.url);
         document.getElementById("modalImage" + (i + 1)).innerHTML = `<img src="${api2.url}" width="400px" height="auto">`;
         document.getElementById("actualimage" + (i + 1)).innerHTML = `<img src="${imageUrl}" width="270px" height="200px">`;
-        await fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${FOOD}&intolerances=${intoleranceStr}&cuisine=${cuisineStr}&diet=${dietStr}&number=${number}&apiKey=${key}`)
-          .then((response) => { return response.json(); })
-          .then((jsonData) => { api = jsonData; });
-        // document.getElementById('def').innerHTML = api.results[0].title;
-         // document.getElementById('imageholder').src = api.results[0].image;
-
-        for (let i = 0; i < 1; i++){
-            document.getElementById("text" + (i + 1)).innerHTML = ``;
-            document.getElementById("actualimage" + (i + 1)).innerHTML = ``;
-        }
 //         GETIMAGE(id)
       }
         
