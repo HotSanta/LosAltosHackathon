@@ -11,6 +11,12 @@ nav{
 #customnav{
     height: 10vh !important;
 }
+#horizontal{
+    height:5px;
+    border-width:0;
+    color:rgb(56, 32, 22);
+    background-color:rgb(56, 32, 22)
+}
 #logo{
     border:0rem solid black;
     border-radius:.5rem;
