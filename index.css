@@ -86,8 +86,8 @@ body{
     background-color:rgb(131, 166, 88);
     overflow-x:hidden;
     background-image: url("/LosAltosHackathon/assets/foodbg.jpg");
-  background-position: center;
-  background-size: cover;
+    background-position: center;
+    background-size: cover;
 
 }
 form {
