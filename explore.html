@@ -53,7 +53,7 @@
 
         // prints link to image to card
         for (let i = 0; i < number; i++){
-            if (api.results[0] == null) {
+            if (api.totalResults == 0) {
                 document.getElementById("text1").innerHTML = `No results! Try something else!`
                 break
             }
