@@ -19,7 +19,7 @@
   <nav>
     
       <div class="row justify-content-center">
-        <h1 class="py-2 text-light" style="font-size:4rem"><b>FoodFindr</b></h1>
+        <h1 class="py-4 text-light" style="font-size:5rem"><b>FoodFindr</b></h1>
       </div>
    
   </nav>
@@ -29,7 +29,7 @@
       <h1 class="pt-1 pb-3 text-light" style="font-size:4rem;"><b>Profile</b></h1>
       </div>
     <div class="row justify-content-center">
-      <h1 class="pb-5 text-light" style="font-size:3rem;">Name</h1>
+      <h1 id = "profileName" class="pb-5 text-light" style="font-size:3rem;">Name</h1>
       </div>
      
   </div>
@@ -64,6 +64,11 @@
     function check(){
           if(sessionStorage.getItem("loggedIn")==null){
               window.location = "index.html";
+          }
+          else{
+              email = sessionStorage.getItem("email")
+              user = email.substring(0,email.indexOf("@"))
+              document.getElementById("profileName").innerHtml = "Welcome ${user}!"
           }
       }
   </script>
