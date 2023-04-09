@@ -314,7 +314,7 @@
         }
           
   let FOOD = document.getElementById("searchbar").value;
-  let response = await fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${FOOD}&diet=${diet}&number=${number}&apiKey=${key}`);
+  let response = await fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${FOOD}&diet=${dietStr}&intolerances=${intoleranceStr}&cuisine=${cuisineStr}&number=${number}&apiKey=${key}`);
   let jsonData = await response.json();
   let api = jsonData;
 
