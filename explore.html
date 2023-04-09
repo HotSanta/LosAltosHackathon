@@ -42,21 +42,136 @@
         <input id="searchbar" placeholder="Search" style="font-size:40px;color:gray;font:helvetica">
         <button onclick="SETUP()" id="searchClick" style="margin-left:-.35rem;font-size:40px;color:gray;font:helvetica">🔎</button>
         <p id='text1'> </p>
-        <p id='2text1'> </p>
+         <!-- Button trigger modal -->
+        <button id="modButton1"type="button" class="disabled"class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Show Recipe Card
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <a id="modalImage1"> </a>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
         <div id='actualimage1'> </div>
         <p id='text2'> </p>
-        <p id='2text2'> </p>
+         <!-- Button trigger modal -->
+        <button id = "modButton2"type="button" class="disabled"class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Show Recipe Card
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <a id="modalImage2"> </a>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
         <div id='actualimage2'> </div>
         <p id='text3'> </p>
-        <p id='2text3'> </p>
+         <!-- Button trigger modal -->
+        <button id="modButton3"type="button" class="disabled"class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Show Recipe Card
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <a id="modalImage3"> </a>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
         <div id='actualimage3'> </div>
+        
         <p id='text4'> </p>
-        <p id='2text4'> </p>
+        <!-- Button trigger modal -->
+        <button id="modButton4"type="button" class="disabled"class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Show Recipe Card
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <a id="modalImage4"> </a>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
         <div id='actualimage4'> </div>
+        
         <p id='text5'> </p>
-        <p id='2text5'> </p>
+        <!-- Button trigger modal -->
+        <button id="modButton5"type="button" class="disabled"class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Show Recipe Card
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <a id="modalImage5"> </a>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
         <div id='actualimage5'> </div>
         </p>
+    
     </body>
     
     <script>
@@ -86,6 +201,7 @@
         for (let i = 0; i < 5; i++){
             document.getElementById("text" + (i + 1)).innerHTML = ``;
             document.getElementById("actualimage" + (i + 1)).innerHTML = ``;
+            document.getElementById('modButton'+(i+1)).classList.add('disabled');
         }
         // prints link to image to card
         for (let i = 0; i < number; i++){
@@ -105,7 +221,8 @@
             
             console.log(`https://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`)
             document.getElementById("text" + (i + 1)).innerHTML = `${title}`
-            document.getElementById("2text" + (i + 1)).innerHTML = `${api2.url}`
+            document.getElementById('modButton'+(i+1)).classList.remove('disabled');
+            document.getElementById('modalImage'+(i+1)).innerHTML =`<img src=\"${api2.url}" width=\"270px\" height=\"200px\">`
 //             document.getElementById("text" + (i + 1)).innerHTML = `Recipe to ${title}: \nhttps://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`;
             document.getElementById('actualimage' + (i + 1)).innerHTML = `<img src=\"${imageUrl}" width=\"270px\" height=\"200px\">`
         }
