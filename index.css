@@ -21,7 +21,9 @@
     color:white;
 }
 #tophome{
-    height:90vh;
+  background-image: url("/assets/foodbg.jpg");
+  background-position: center;
+  background-size: cover; 
 }
 #searchClick{
     border:0rem solid white;
