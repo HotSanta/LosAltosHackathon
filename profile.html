@@ -93,7 +93,6 @@
       }
     function loadFavorites(){
       user = sessionStorage.getItem("email").replaceAll(".","").replaceAll("#","").replaceAll("$",'').replaceAll("[","").replaceAll("]","")
-      alert(user)
       const userFavoritesRef = firebase.database().ref('userFavorites/'+user);
       userFavoritesRef.on('value', (snapshot) => { // Listen for changes to the user's saved recipes
         const recipes = snapshot.val(); // Get the user's saved recipes from the snapshot
