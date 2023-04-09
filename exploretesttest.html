@@ -338,9 +338,13 @@
     response = await fetch(`https://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`);
     jsonData = await response.json();
     let api2 = jsonData;
+      
+    response = await fetch(`https://api.spoonacular.com/recipes/${id}/priceBreakdownWidget.json?apiKey=${key}`);
+    jsonData = await response.json();
+    let api3 = jsonData;
 
     console.log(`https://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`);
-    document.getElementById("text" + (i + 1)).innerHTML = `${title}`;
+    document.getElementById("text" + (i + 1)).innerHTML = `${title}: \$${api3.totalCostPerServing} per serving`;
     document.getElementById("modButton" + (i + 1)).classList.remove("disabled");
     console.log(api2.url);
     document.getElementById("modalImage" + (i + 1)).innerHTML = `<img src="${api2.url}" width="400px" height="auto">`;
