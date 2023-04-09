@@ -314,6 +314,37 @@
         
         let FOOD = document.getElementById("searchbar").value
 //         alert(FOOD)
+        let response = await fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${FOOD}&cuisine=${cuisineStr}&intolerances=${intoleranceStr}&diet=${diet}&number=${number}&apiKey=${key}`);
+      let jsonData = await response.json();
+      let api = jsonData;
+
+      for (let i = 0; i < 5; i++) {
+        document.getElementById("text" + (i + 1)).innerHTML = "";
+        document.getElementById("actualimage" + (i + 1)).innerHTML = "";
+        document.getElementById("modButton" + (i + 1)).classList.add("disabled");
+      }
+
+      for (let i = 0; i < number; i++) {
+        console.log(api.totalResults);
+        if (api.totalResults == 0) {
+          document.getElementById("text1").innerHTML = "No results! Try something else!";
+          break;
+        }
+
+        let id = api.results[i].id;
+        let title = api.results[i].title;
+        let imageUrl = api.results[i].image;
+
+        response = await fetch(`https://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`);
+        jsonData = await response.json();
+        let api2 = jsonData;
+
+        console.log(`https://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`);
+        document.getElementById("text" + (i + 1)).innerHTML = `${title}`;
+        document.getElementById("modButton" + (i + 1)).classList.remove("disabled");
+        console.log(api2.url);
+        document.getElementById("modalImage" + (i + 1)).innerHTML = `<img src="${api2.url}" width="400px" height="auto">`;
+        document.getElementById("actualimage" + (i + 1)).innerHTML = `<img src="${imageUrl}" width="270px" height="200px">`;
         await fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${FOOD}&intolerances=${intoleranceStr}&cuisine=${cuisineStr}&diet=${dietStr}&number=${number}&apiKey=${key}`)
           .then((response) => { return response.json(); })
           .then((jsonData) => { api = jsonData; });
@@ -323,28 +354,6 @@
         for (let i = 0; i < 1; i++){
             document.getElementById("text" + (i + 1)).innerHTML = ``;
             document.getElementById("actualimage" + (i + 1)).innerHTML = ``;
-        }
-        // prints link to image to card
-        for (let i = 0; i < number; i++){
-            if (api.totalResults == 0) {
-                document.getElementById("text1").innerHTML = `No results! Try something else!`
-                break
-            }
-            let id = api.results[i].id;
-    //         alert(id)
-            let title = api.results[i].title;
-            let imageUrl = api.results[i].image;
-    //         alert(title)
-            
-            await fetch(`https://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`)
-                .then((response) => { return response.json(); })
-                .then((jsonData) => { api2 = jsonData; });
-            
-            console.log(`https://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`)
-            document.getElementById("text" + (i + 1)).innerHTML = `${title}`
-//             document.getElementById("2text" + (i + 1)).innerHTML = `${api2.url}`
-//             document.getElementById("text" + (i + 1)).innerHTML = `Recipe to ${title}: \nhttps://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`;
-            document.getElementById('actualimage' + (i + 1)).innerHTML = `<img src=\"${imageUrl}" width=\"270px\" height=\"200px\">`
         }
 //         GETIMAGE(id)
       }
