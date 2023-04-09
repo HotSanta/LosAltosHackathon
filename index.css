@@ -18,7 +18,7 @@
     color:white;
 }
 #tophome{
-  background-image: url("/assets/foodbg.jpg");
+  background-image: url("/LosAltosHackathon/assets/foodbg.jpg");
   background-position: center;
   background-size: cover; 
 }
