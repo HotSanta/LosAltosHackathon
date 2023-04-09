@@ -1,0 +1,173 @@
+*{
+    border:unset;
+    margin:unset;
+}
+.disabled{
+    cursor: not-allowed;
+    display: none;
+}
+#modButton1{
+    border: 0rem solid white;
+    border-radius:0.5rem;
+    margin-bottom:1rem;
+}
+#modButton2{
+    border: 0rem solid white;
+    border-radius:0.5rem;
+    margin-bottom:1rem;
+}
+#modButton3{
+    border: 0rem solid white;
+    border-radius:0.5rem;
+    margin-bottom:1rem;
+}
+#modButton4{
+    border: 0rem solid white;
+    border-radius:0.5rem;
+    margin-bottom:1rem;
+}
+#modButton5{
+    border: 0rem solid white;
+    border-radius:0.5rem;
+    margin-bottom:1rem;
+}
+#searchbar{
+    border:0rem solid white;
+    border-radius:1rem  0rem 0rem 1rem;
+    padding-left:1.5rem;
+}
+#getstarted{
+    border:0rem solid white;
+    border-radius:9rem  9rem 9rem 9rem;
+    background-color: rgb(3, 84, 56);
+    color:white;
+}
+#tophome{
+ 
+}
+#searchClick{
+    border:0rem solid white;
+    border-radius:0rem 1rem 1rem 0rem;
+}
+h1{
+    color:black;
+}
+nav{
+    background: rgb(56, 32, 22);
+}
+#customnav{
+    height: 10vh !important;
+}
+
+#logo{
+    border:0rem solid black;
+    border-radius:.5rem;
+    margin-left:2rem;
+    margin-top:1rem;
+    margin-bottom:1rem;
+}
+.indexButtons:hover{
+    text-decoration: none;
+    color:rgb(151, 147, 147);
+}
+.indexButtons{
+    border: 1rem solid darkgreen;
+    border-radius: 0.5rem;
+    background-color: darkgreen;
+    color:white;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 1.75rem;
+    width:6rem;
+    float:right;
+    margin-right:2rem;
+}
+body{
+    background-color:rgb(131, 166, 88);
+    overflow-x:hidden;
+    background-image: url("/LosAltosHackathon/assets/foodbg.jpg"); 
+    background-position: center; 
+    background-size: cover;
+
+}
+form {
+    border: 1rem solid green;
+    width:50%;
+    background:green;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:3rem;
+    padding-top:1rem;
+    padding-bottom:1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0.5rem;
+}
+form button{
+    background-color:lightgreen;
+    color:black;
+    
+    text-align: center;
+    text-decoration: none;
+}
+form button[type="submit"]{
+    padding: 15px 32px;
+    border:0rem solid lightgreen;
+    border-radius: 0.5rem;
+}
+.alternativeLogins{
+    display: flex;
+    justify-content: space-between;
+}
+form a img{
+    display: inline-block !important;
+    margin-top: 2rem;
+    padding: 0.5rem 1rem;
+    background: white;
+    color: green;
+    border: 2px solid green;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+label {
+    font-size:2rem;
+    display: block;
+    margin-bottom: 1rem;
+    text-align: center;
+    color:black;
+}
+label b{
+    font-size:1.25rem;
+    margin-bottom:0.5rem;
+    color:black;
+}
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    max-width: 19rem;
+    padding: 0.5rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+}
+.loginLink{
+    display: flex;
+    color:black;
+    text-decoration:none;
+    margin-left:auto;
+    margin-right:auto;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:1rem;
+    font-size:1.5rem;
+}
+.loginLink:hover{
+    color:green;
+    text-decoration: none;
+}
