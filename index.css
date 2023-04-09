@@ -43,9 +43,7 @@
     color:white;
 }
 #tophome{
-  background-image: url("/LosAltosHackathon/assets/foodbg.jpg");
-  background-position: center;
-  background-size: cover;
+ 
 }
 #searchClick{
     border:0rem solid white;
@@ -86,7 +84,10 @@ nav{
 }
 body{
     background-color:rgb(131, 166, 88);
-    overflow-x:hidden
+    overflow-x:hidden;
+    background-image: url("/LosAltosHackathon/assets/foodbg.jpg");
+  background-position: center;
+  background-size: cover;
 
 }
 form {
