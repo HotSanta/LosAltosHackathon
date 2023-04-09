@@ -6,6 +6,31 @@
     cursor: not-allowed;
     display: none;
 }
+#modButton1{
+    border: 0rem solid white;
+    border-radius:0.5rem;
+    margin-bottom:1rem;
+}
+#modButton2{
+    border: 0rem solid white;
+    border-radius:0.5rem;
+    margin-bottom:1rem;
+}
+#modButton3{
+    border: 0rem solid white;
+    border-radius:0.5rem;
+    margin-bottom:1rem;
+}
+#modButton4{
+    border: 0rem solid white;
+    border-radius:0.5rem;
+    margin-bottom:1rem;
+}
+#modButton5{
+    border: 0rem solid white;
+    border-radius:0.5rem;
+    margin-bottom:1rem;
+}
 #searchbar{
     border:0rem solid white;
     border-radius:1rem  0rem 0rem 1rem;
