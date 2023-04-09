@@ -14,7 +14,7 @@
     </head>
     
     <body>
-        <h1 style="font-size:60px;text-align:center;color:blue" >load</h1>
+        <h1 style="font-size:60px;text-align:center;color:blue" >load??????</h1>
         <p style="font-size:24px;text-align:center;color:black">
         <input id="searchbar" placeholder="Search" style="font-size:48px;color:gray;font:helvetica">
         <button onclick="SETUP()" style="font-size:48px;font:helvetica">🔎</button>
@@ -53,7 +53,7 @@
 
         // prints link to image to card
         for (let i = 0; i < number; i++){
-            if (api == null) {
+            if (api.results[0] == null) {
                 document.getElementById("text1").innerHTML = `No results! Try something else!`
                 break
             }
