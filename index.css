@@ -7,6 +7,11 @@
     border-radius:1rem  0rem 0rem 1rem;
     padding-left:1.5rem;
 }
+#getstarted{
+    border:0rem solid white;
+    border-radius:9rem  9rem 9rem 9rem;
+    background-color: rgb(3, 84, 56);
+}
 #searchClick{
     border:0rem solid white;
     border-radius:0rem 1rem 1rem 0rem;
