@@ -20,7 +20,7 @@
 #tophome{
   background-image: url("/LosAltosHackathon/assets/foodbg.jpg");
   background-position: center;
-  background-size: cover; 
+  background-size: 100% 100%;
 }
 #searchClick{
     border:0rem solid white;
