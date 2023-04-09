@@ -220,14 +220,11 @@
         if (intoleranceStr.length != 0){
             intoleranceStr = intoleranceStr.substring(0, intoleranceStr.length - 1);
         }
-        
-        alert(cuisineStr)
-        alert(dietStr)
-        alert(intoleranceStr)
+       
         
         let FOOD = document.getElementById("searchbar").value
 //         alert(FOOD)
-        fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${FOOD}&diet=${diet}&number=${number}&apiKey=${key}`)
+        fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${FOOD}&cuisine=${cuisineStr}&diet=${dietStr}&number=${number}&apiKey=${key}`)
           .then((response) => { return response.json(); })
           .then((jsonData) => { api = jsonData; });
         // document.getElementById('def').innerHTML = api.results[0].title;
