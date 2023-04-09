@@ -106,7 +106,7 @@
         for (const recipeId in recipes) { // Iterate through each recipe in the user's saved recipes
           const recipe = recipes[recipeId];
           const recipeName = recipe.name; // Get the name of the recipe
-          const recipeCardURL = recipe.cardURL; // Get the URL of the recipe card image
+          const recipeCardURL = recipe.imageUrl; // Get the URL of the recipe card image
 
           const link = document.createElement('a'); // Create a new link element
           link.href = recipeCardURL; // Set the href attribute of the link to the URL of the recipe card image
