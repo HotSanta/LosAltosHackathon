@@ -31,8 +31,8 @@
       let api;
       let api2;
       let diet = ''
-      let key = '02231ea4a5f44b5c836e3ba3a84357ba';
-      let number = '5'; // change this later
+      let key = 'a60d21bdb1924935b97e8b7590475379';
+      let number = '2'; // change this later
       let img;
       let favorites = [];
 
@@ -60,7 +60,7 @@
                 .then((jsonData) => { api2 = jsonData; });
             
             console.log(`https://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`)
-            document.getElementById("text" + (i + 1)).innerHTML = `${title}\'s recipe: <br><\br>${api2.url}`
+            document.getElementById("text" + (i + 1)).innerHTML = `${title}\'s recipe:\n${api2.url}`
 //             document.getElementById("text" + (i + 1)).innerHTML = `Recipe to ${title}: \nhttps://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`;
             document.getElementById('actualimage' + (i + 1)).innerHTML = `<img src=\"${imageUrl}" width=\"270px\" height=\"200px\">`
         }
