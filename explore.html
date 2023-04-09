@@ -140,39 +140,39 @@
 
       // SETUP("pasta");
       function SETUP() {
-  let FOOD = document.getElementById("searchbar").value;
-  fetch(
-    `https://api.spoonacular.com/recipes/complexSearch?query=${FOOD}&diet=${diet}&number=${number}&apiKey=${key}`
-  )
-    .then((response) => {
-      return response.json();
-    })
-    .then((jsonData) => {
-      api = jsonData;
-      for (let i = 0; i < number; i++) {
-        if (api.totalResults == 0) {
-          document.getElementById("text1").innerHTML = `No results! Try something else!`;
-          break;
-        }
-        let id = api.results[i].id;
-        let title = api.results[i].title;
-        let imageUrl = api.results[i].image;
-        fetch(`https://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`)
-          .then((response) => {
-            return response.json();
-          })
-          .then((jsonData) => {
-            api2 = jsonData;
-            let modalButton = document.getElementById("modButton" + (i + 1));
-            modalButton.onclick = function () {
-              document.getElementById("modalImage" + (i + 1)).innerHTML = `<img src="${api2.url}" width="270px" height="200px">`;
-            };
-            modalButton.classList.remove("disabled");
-          });
-        document.getElementById("text" + (i + 1)).innerHTML = `${title}`;
-        document.getElementById("actualimage" + (i + 1)).innerHTML = `<img src="${imageUrl}" width="270px" height="200px">`;
-      }
-    });
+          let FOOD = document.getElementById("searchbar").value;
+          fetch(
+            `https://api.spoonacular.com/recipes/complexSearch?query=${FOOD}&diet=${diet}&number=${number}&apiKey=${key}`
+          )
+            .then((response) => {
+              return response.json();
+            })
+            .then((jsonData) => {
+              api = jsonData;
+              for (let i = 0; i < number; i++) {
+                if (api.totalResults == 0) {
+                  document.getElementById("text1").innerHTML = `No results! Try something else!`;
+                  break;
+                }
+                let id = api.results[i].id;
+                let title = api.results[i].title;
+                let imageUrl = api.results[i].image;
+                fetch(`https://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`)
+                  .then((response) => {
+                    return response.json();
+                  })
+                  .then((jsonData) => {
+                    api2 = jsonData;
+                    let modalButton = document.getElementById("modButton" + (i + 1));
+                    modalButton.onclick = function () {
+                      document.getElementById("modalImage" + (i + 1)).innerHTML = `<img src="${api2.url}" width="270px" height="200px">`;
+                    };
+                    modalButton.classList.remove("disabled");
+                  });
+                document.getElementById("text" + (i + 1)).innerHTML = `${title}`;
+                document.getElementById("actualimage" + (i + 1)).innerHTML = `<img src="${imageUrl}" width="270px" height="200px">`;
+              }
+            });
         
       async function GETIMAGE(id) {
         await fetch(`https://api.spoonacular.com/recipes/${id}/card?apiKey=${key}`)
