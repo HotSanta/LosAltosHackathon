@@ -61,6 +61,7 @@
     
     <script>
       function check(){
+          alert(sessionStorage.getItem("loggedIn"))
           if(sessionStorage.getItem("loggedIn")==null){
               alert("hi")
               window.location = "index.html";
