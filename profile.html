@@ -68,6 +68,7 @@
           else{
               email = sessionStorage.getItem("email")
               user = email.substring(0,email.indexOf("@"))
+              alert(user)
               document.getElementById("profileName").innerHtml = "Welcome ${user}!"
           }
       }
